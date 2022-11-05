@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Medicina extends StatelessWidget {
-  const Medicina({super.key});
+  const Medicina({super.key, required this.item});
+  final Map item;
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +34,13 @@ class Medicina extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Text("Paracetamol",style: TextStyle(fontSize: 23,color: Colors.white, fontWeight: FontWeight.bold),),
-              const Text("12:30 PM",style: TextStyle(fontSize: 20,color: Colors.white, fontWeight: FontWeight.bold),),
+              Text("${item["nombre"]}",style: TextStyle(fontSize: 23,color: Colors.white, fontWeight: FontWeight.bold),),
+              Text("${item["hora"]}",style: TextStyle(fontSize: 20,color: Colors.white, fontWeight: FontWeight.bold),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const[
-                  Text("2 ",style: TextStyle(fontSize: 25,color: Colors.white, fontWeight: FontWeight.bold),),
-                  Text("Unidades",style: TextStyle(fontSize: 15,color: Colors.white, fontWeight: FontWeight.bold),)
+                children:[
+                  Text("${item["unidades"]} ",style: TextStyle(fontSize: 25,color: Colors.white, fontWeight: FontWeight.bold),),
+                  const Text("Unidades",style: TextStyle(fontSize: 15,color: Colors.white, fontWeight: FontWeight.bold),)
                 ],
               )
             ],

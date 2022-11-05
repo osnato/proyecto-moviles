@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ItemMedicina extends StatelessWidget {
-  const ItemMedicina({super.key});
+  const ItemMedicina({super.key, required this.medicina});
+  final Map medicina;
 
   @override
   Widget build(BuildContext context) {
+    print(medicina);
     return GestureDetector(
       child: Container(
         width: 50,
@@ -17,7 +19,7 @@ class ItemMedicina extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Medicina")
+            Text("${medicina["nombre"]}")
           ],
         ),
       ),
@@ -25,13 +27,13 @@ class ItemMedicina extends StatelessWidget {
         showDialog(
                         context: context,
                         builder: (builder) => AlertDialog(
-                              title: Text("Medicina"),
+                              title: Text("${medicina["nombre"]}"),
                               content: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Horario: 5:00 PM"),
-                                  Text("Unidades: 3"),
+                                  Text("Horario: ${medicina["horario"]}"),
+                                  Text("Unidades: ${medicina["unidades"]}"),
                                 ],
                               ),
                               actions: [

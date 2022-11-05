@@ -6,6 +6,10 @@ class AddMedicina extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var nombreController = TextEditingController();
+    var horarioController = TextEditingController();
+    var unidadesController = TextEditingController();
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -14,14 +18,14 @@ class AddMedicina extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: TextField(
                 onSubmitted: ((value) {}),
-                decoration: InputDecoration(
-
+                controller: nombreController,
+                decoration: const InputDecoration(
                     labelText: 'Nombre de pastilla',
-                    labelStyle: const TextStyle(color: Colors.black),
-                    focusedBorder: const OutlineInputBorder(
+                    labelStyle: TextStyle(color: Colors.black),
+                    focusedBorder: OutlineInputBorder(
                         borderSide:
                             BorderSide(color: Color.fromARGB(255, 0, 0, 0))),
-                    border: const OutlineInputBorder(),
+                    border: OutlineInputBorder(),
                     ),
               ),
         ),
@@ -40,7 +44,7 @@ class AddMedicina extends StatelessWidget {
             validator: (e) =>
                 (e?.day ?? 0) == 1 ? 'Please not the first day' : null,
             onDateSelected: (DateTime value) {
-              print(value);
+              horarioController.text=value.toString();
             },
           ),
         ),
@@ -49,13 +53,14 @@ class AddMedicina extends StatelessWidget {
           child: TextField(
                 onSubmitted: ((value) {}),
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                controller: unidadesController,
+                decoration: const InputDecoration(
                     labelText: 'Cantidad',
-                    labelStyle: const TextStyle(color: Colors.black),
-                    focusedBorder: const OutlineInputBorder(
+                    labelStyle: TextStyle(color: Colors.black),
+                    focusedBorder: OutlineInputBorder(
                         borderSide:
                             BorderSide(color: Color.fromARGB(255, 0, 0, 0))),
-                    border: const OutlineInputBorder(),
+                    border: OutlineInputBorder(),
                     ),
               ),
         ),

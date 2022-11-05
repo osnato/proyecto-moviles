@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:analog_clock/analog_clock.dart';
+import 'package:provider/provider.dart';
 import 'package:proyecto/pages/dashboard/medicina.dart';
 import 'package:proyecto/pages/dashboard/proxima_toma.dart';
+import 'package:proyecto/pages/medicina/provider_medicina.dart';
 
 class Recuento extends StatelessWidget {
   const Recuento({super.key});
@@ -29,12 +31,12 @@ class Recuento extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: context.watch<ProviderMedicina>().getTodayMedicine(new DateTime.now().weekday).length, //Change to day 1-7
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: const EdgeInsets.all(20.0),
-                      child: Medicina(),
+                      child: Medicina(item:context.watch<ProviderMedicina>().getTodayMedicine(new DateTime.now().weekday)[index]),
                     );
                   },
                 ),

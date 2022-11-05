@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-
 class Profile extends StatelessWidget {
   const Profile({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Perfil"),
+        title: const Text("Perfil"),
       ),
       body: Column(
       children: [
@@ -17,16 +15,15 @@ class Profile extends StatelessWidget {
             Container(
               height: 200,
               width: 200,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(200)),
                 color: Colors.black
               ),
-              child: CircleAvatar(backgroundImage: NetworkImage("https://static3.abc.es/media/summum/2021/10/01/maxi_iglesias-kXKH--620x349@abc.jpeg"),)
+              child: const CircleAvatar(backgroundImage: NetworkImage("https://static3.abc.es/media/summum/2021/10/01/maxi_iglesias-kXKH--620x349@abc.jpeg"),)
             ),
           ],
         ),
-
-        Text("Daniel"),
+        const Text("Daniel"),
         Expanded(child: 
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +32,6 @@ class Profile extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: TextField(
                     onSubmitted: ((value) {
-                     
                     }),
                     decoration: InputDecoration(
                       fillColor: Colors.white,
@@ -47,7 +43,6 @@ class Profile extends StatelessWidget {
                       border: const OutlineInputBorder(),
                       suffixIcon: IconButton(
                         onPressed: (){
-                         
                         },
                         icon: const Icon(Icons.mail,color: Colors.black,),
                         )
